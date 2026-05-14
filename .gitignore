@@ -1,0 +1,63 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all environment files (except templates).
+/.env*
+!/.env*.erb
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/.keep
+
+# Ignore storage (uploaded files in development and any SQLite databases).
+/storage/*
+!/storage/.keep
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+/config/credentials/*.key
+
+# Ignore node_modules
+/node_modules
+
+# Ignore byebug history
+.byebug_history
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Vim
+*.swp
+*.swo
+*~
+
+# RubyMine
+.idea/
+
+# VSCode
+.vscode/
+
+# Kamal secrets (contains credentials)
+.kamal/secrets
+
+# Docker
+.dockerignore
+
+# Coverage reports
+/coverage
+
+# Spring
+.spring
+
+# Database
+*.sqlite3
+*.sqlite3-journal
+/db/*.sqlite3
