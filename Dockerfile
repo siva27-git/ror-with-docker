@@ -1,7 +1,7 @@
 FROM ruby:3.4.9-slim
 
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential libyaml-dev && \
+    apt-get install --no-install-recommends -y build-essential libyaml-dev libpq-dev && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -13,4 +13,5 @@ COPY . .
 
 EXPOSE 8080
 
+ENTRYPOINT ["bin/docker-entrypoint"]
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "8080"]
