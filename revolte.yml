@@ -1,0 +1,84 @@
+revolte:
+  version: '1.0'
+  project: May14
+  appName: ror-with-docker
+  env:
+    staging:
+      branch: staging
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          properties:
+            health: /health
+            port: 8080
+            loadBalancerMode: dedicated
+            variables:
+              BASE_URL: /api/v1
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+    qa:
+      branch: develop
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          properties:
+            health: /health
+            port: 8080
+            loadBalancerMode: dedicated
+            variables:
+              BASE_URL: /api/v1
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+    production:
+      branch: main
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          properties:
+            health: /health
+            port: 8080
+            loadBalancerMode: dedicated
+            variables:
+              BASE_URL: /api/v1
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            autoScaling:
+              replica:
+                min: 1
+                max: 1
+              utilization:
+                cpu:
+                  target: 70
+                memory:
+                  target: 70
+              behavior:
+                scaleDown:
+                  stabilizationWindow: 300
+    preview:
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: index.js
+          properties:
+            health: /health
+            port: 8080
+            loadBalancerMode: dedicated
+            variables:
+              BASE_URL: /api/v1
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
