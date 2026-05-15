@@ -51,6 +51,9 @@ revolte:
               AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
               AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
               AWS_BUCKET_NAME: 'ror-test-d'
+              CACHE_HOST: '#{cache.cacheHost}'
+              CACHE_PORT: '#{cache.cachePort}'
+              CACHE_PASSWORD: '#{cache.cachePassword}'
           specifications:
             cpu: 2
             memory: 1
