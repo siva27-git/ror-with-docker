@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       resources :users, only: [ :show, :create ]
       post "files/upload", to: "files#upload"
       get  "files/fetch",  to: "files#fetch"
+      post "cache",        to: "cache#create"
+      get  "cache/:key",   to: "cache#show"
+      delete "cache/:key", to: "cache#destroy"
     end
   end
 end
