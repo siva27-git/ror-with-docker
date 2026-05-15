@@ -13,5 +13,4 @@ COPY . .
 
 EXPOSE 8080
 
-ENTRYPOINT ["bin/docker-entrypoint"]
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "8080"]
