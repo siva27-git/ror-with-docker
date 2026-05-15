@@ -8,6 +8,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem "bootsnap", require: false
 gem "dotenv-rails", "~> 3.1"
+gem "aws-sdk-s3", "~> 1"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
