@@ -12,7 +12,7 @@ revolte:
         rid_1:
           type: WEB_SERVICE
           name: web_service
-          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
           properties:
             health: /health
             port: 8080
@@ -37,7 +37,7 @@ revolte:
         rid_1:
           type: WEB_SERVICE
           name: web_service
-          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
           properties:
             health: /health
             port: 8080
@@ -62,7 +62,7 @@ revolte:
         rid_1:
           type: WEB_SERVICE
           name: web_service
-          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
           properties:
             health: /health
             port: 8080

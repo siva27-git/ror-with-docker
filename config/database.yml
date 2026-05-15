@@ -1,22 +1,20 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV.fetch("DATABASE_URL") { "localhost" } %>
-  port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
-  username: <%= ENV.fetch("DATABASE_USERNAME") { "postgres" } %>
-  password: <%= ENV.fetch("DATABASE_PASSWORD") { "password" } %>
-  database: <%= ENV.fetch("DATABASE_NAME") { "ror_with_docker" } %>
-  sslmode: require
+  # max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # host: <%= ENV.fetch("DATABASE_HOST") %>
+  # port: <%= ENV.fetch("DATABASE_PORT") %>
+  # username: <%= ENV.fetch("DATABASE_USERNAME") %>
+  # password: <%= ENV.fetch("DATABASE_PASSWORD") %>
+  # database: <%= ENV.fetch("DATABASE_NAME") %>
+  url: <%= ENV.fetch("DATABASE_URL") %>
+  sslmode: disable
 
 development:
   <<: *default
-  database: <%= ENV.fetch("DATABASE_NAME") { "ror_with_docker_development" } %>
 
 test:
   <<: *default
-  database: <%= ENV.fetch("DATABASE_NAME") { "ror_with_docker_test" } %>
 
 production:
   <<: *default
-  database: <%= ENV.fetch("DATABASE_NAME") { "ror_with_docker_production" } %>
