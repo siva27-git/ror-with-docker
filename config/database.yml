@@ -1,13 +1,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  # host: <%= ENV.fetch("DATABASE_HOST") %>
-  # port: <%= ENV.fetch("DATABASE_PORT") %>
-  # username: <%= ENV.fetch("DATABASE_USERNAME") %>
-  # password: <%= ENV.fetch("DATABASE_PASSWORD") %>
-  # database: <%= ENV.fetch("DATABASE_NAME") %>
-  url: <%= ENV["DATABASE_URL"] %>
+  max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("DATABASE_HOST") %>
+  port: <%= ENV.fetch("DATABASE_PORT") %>
+  username: <%= ENV.fetch("DATABASE_USERNAME") %>
+  password: <%= ENV.fetch("DATABASE_PASSWORD") %>
+  database: <%= ENV.fetch("DATABASE_NAME") %>
+  # url: <%= ENV["DATABASE_URL"] %>
   sslmode: disable
 
 development:

@@ -19,6 +19,11 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
+              DATABASE_HOST: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
           specifications:
             cpu: 2
             memory: 1
@@ -44,6 +49,11 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
+              DATABASE_HOST: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
           specifications:
             cpu: 2
             memory: 1
@@ -69,6 +79,11 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
+              DATABASE_HOST: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
           specifications:
             cpu: 2
             memory: 1
@@ -105,6 +120,11 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
+              DATABASE_HOST: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
           specifications:
             cpu: 2
             memory: 1
