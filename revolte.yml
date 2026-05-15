@@ -23,14 +23,13 @@ revolte:
             cpu: 2
             memory: 1
             storage: 30
-        rid_2:
-          type: DATABASE
-          name: db
-          specifications:
-            cpu: 2
-            memory: 1
-            storage: 30
-            engine: postgres
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: ror-test-s
+            versioningStatus: enabled
+            public: false
     qa:
       branch: develop
       services:
@@ -48,14 +47,13 @@ revolte:
             cpu: 2
             memory: 1
             storage: 30
-        rid_2:
-          type: DATABASE
-          name: db
-          specifications:
-            cpu: 2
-            memory: 1
-            storage: 30
-            engine: postgres
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: ror-test-d
+            versioningStatus: enabled
+            public: false
     production:
       branch: main
       services:
@@ -85,14 +83,13 @@ revolte:
               behavior:
                 scaleDown:
                   stabilizationWindow: 300
-        rid_2:
-          type: DATABASE
-          name: db
-          specifications:
-            cpu: 2
-            memory: 1
-            storage: 30
-            engine: postgres
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: ror-test-p
+            versioningStatus: enabled
+            public: false
     preview:
       services:
         rid_1:
@@ -109,11 +106,10 @@ revolte:
             cpu: 2
             memory: 1
             storage: 30
-        rid_2:
-          type: DATABASE
-          name: db
-          specifications:
-            cpu: 2
-            memory: 1
-            storage: 30
-            engine: postgres
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: ror-test
+            versioningStatus: enabled
+            public: false
