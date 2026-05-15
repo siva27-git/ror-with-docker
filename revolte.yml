@@ -19,6 +19,10 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
+              AWS_REGION: '#{storage_bucket_service.region}'
+              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
+              AWS_BUCKET_NAME: 'ror-test-s'
           specifications:
             cpu: 2
             memory: 1
@@ -43,6 +47,10 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
+              AWS_REGION: '#{storage_bucket_service.region}'
+              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
+              AWS_BUCKET_NAME: 'ror-test-d'
           specifications:
             cpu: 2
             memory: 1
@@ -67,6 +75,10 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
+              AWS_REGION: '#{storage_bucket_service.region}'
+              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
+              AWS_BUCKET_NAME: 'ror-test-p'
           specifications:
             cpu: 2
             memory: 1
@@ -102,6 +114,10 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
+              AWS_REGION: '#{storage_bucket_service.region}'
+              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
+              AWS_BUCKET_NAME: 'ror-test'
           specifications:
             cpu: 2
             memory: 1
