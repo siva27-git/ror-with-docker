@@ -12,7 +12,7 @@ revolte:
         rid_1:
           type: WEB_SERVICE
           name: web_service
-          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
           properties:
             health: /health
             port: 8080
@@ -23,6 +23,11 @@ revolte:
               AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
               AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
               AWS_BUCKET_NAME: ror-test-s
+              DATABASE_HOST: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
           specifications:
             cpu: 2
             memory: 1
@@ -46,7 +51,7 @@ revolte:
         rid_1:
           type: WEB_SERVICE
           name: web_service
-          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
           properties:
             health: /health
             port: 8080
@@ -60,6 +65,11 @@ revolte:
               CACHE_HOST: '#{cache.cacheHost}'
               CACHE_PORT: '#{cache.cachePort}'
               CACHE_PASSWORD: '#{cache.cachePassword}'
+              DATABASE_HOST: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
           specifications:
             cpu: 2
             memory: 1
@@ -83,7 +93,7 @@ revolte:
         rid_1:
           type: WEB_SERVICE
           name: web_service
-          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
           properties:
             health: /health
             port: 8080
@@ -94,6 +104,11 @@ revolte:
               AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
               AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
               AWS_BUCKET_NAME: ror-test-p
+              DATABASE_HOST: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
           specifications:
             cpu: 2
             memory: 1
@@ -140,6 +155,11 @@ revolte:
               AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
               AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
               AWS_BUCKET_NAME: ror-test
+              DATABASE_HOST: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
           specifications:
             cpu: 2
             memory: 1
