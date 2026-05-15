@@ -32,6 +32,14 @@ revolte:
             cpu: 2
             memory: 1
             storage: 30
+        rid_4:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
         rid_3:
           type: STORAGE_BUCKET
           name: storage_bucket_service
@@ -74,6 +82,14 @@ revolte:
             cpu: 2
             memory: 1
             storage: 30
+        rid_4:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
         rid_3:
           type: STORAGE_BUCKET
           name: storage_bucket_service
@@ -128,6 +144,14 @@ revolte:
               behavior:
                 scaleDown:
                   stabilizationWindow: 300
+        rid_4:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
         rid_3:
           type: STORAGE_BUCKET
           name: storage_bucket_service
@@ -167,6 +191,14 @@ revolte:
             cpu: 2
             memory: 1
             storage: 30
+        rid_4:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
         rid_3:
           type: STORAGE_BUCKET
           name: storage_bucket_service
