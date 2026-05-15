@@ -104,6 +104,9 @@ revolte:
               AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
               AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
               AWS_BUCKET_NAME: ror-test-p
+              CACHE_HOST: '#{cache.cacheHost}'
+              CACHE_PORT: '#{cache.cachePort}'
+              CACHE_PASSWORD: '#{cache.cachePassword}'
               DATABASE_HOST: '#{db.dbUrl}'
               DATABASE_PORT: '#{db.dbPort}'
               DATABASE_USERNAME: '#{db.dbUsername}'
