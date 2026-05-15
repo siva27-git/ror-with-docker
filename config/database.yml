@@ -7,13 +7,16 @@ default: &default
   # username: <%= ENV.fetch("DATABASE_USERNAME") %>
   # password: <%= ENV.fetch("DATABASE_PASSWORD") %>
   # database: <%= ENV.fetch("DATABASE_NAME") %>
-  url: <%= ENV.fetch("DATABASE_URL") %>
+  url: <%= ENV["DATABASE_URL"] %>
   sslmode: disable
 
 development:
   <<: *default
 
 test:
+  <<: *default
+
+staging:
   <<: *default
 
 production:
