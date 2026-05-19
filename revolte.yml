@@ -2,16 +2,31 @@ revolte:
   version: '1.0'
   project: May-19
   appName: ror-with-docker
+  config:
+    codeReview:
+      summarize: true
+      suggestFixes: true
+      commentStyle: Balanced
+    testSuite:
+      command: npm run test
+    automationTestSuite:
+      command: npm run test:automation
+  workflow:
+    developerWorkflow:
+      enabled: true
   env:
     staging:
       branch: staging
+      codeReview: true
+      testSuite: true
+      automationTestSuite: true
       services:
         rid_1:
           type: WEB_SERVICE
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /healt
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -43,7 +58,7 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: bucket-s
+            bucketName: buck-s
             versioningStatus: enabled
             public: false
         rid_4:
@@ -54,13 +69,16 @@ revolte:
             memory: 0.5
     qa:
       branch: develop
+      codeReview: true
+      testSuite: true
+      automationTestSuite: true
       services:
         rid_1:
           type: WEB_SERVICE
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /healt
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -92,7 +110,7 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: bucket-d
+            bucketName: bucket-q
             versioningStatus: enabled
             public: false
         rid_4:
@@ -103,13 +121,16 @@ revolte:
             memory: 0.5
     production:
       branch: main
+      codeReview: true
+      testSuite: true
+      automationTestSuite: true
       services:
         rid_1:
           type: WEB_SERVICE
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /healt
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -153,7 +174,7 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: bucket-p
+            bucketName: buck-p
             versioningStatus: enabled
             public: false
         rid_4:
@@ -164,13 +185,16 @@ revolte:
             memory: 0.5
             replica: 1
     preview:
+      codeReview: true
+      testSuite: true
+      automationTestSuite: true
       services:
         rid_1:
           type: WEB_SERVICE
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /healt
             port: 8080
             loadBalancerMode: dedicated
             variables:
