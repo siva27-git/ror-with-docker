@@ -2,6 +2,9 @@ revolte:
   version: '1.0'
   project: May-19
   appName: ror-with-docker
+  workflow:
+    developerWorkflow:
+      enabled: true
   env:
     staging:
       branch: staging
@@ -16,7 +19,7 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
-              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_HOST: '#{db.dbUrl}'
               DATABASE_PORT: '#{db.dbPort}'
               DATABASE_USERNAME: '#{db.dbUsername}'
               DATABASE_PASSWORD: '#{db.dbPassword}'
@@ -114,7 +117,7 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
-              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_HOST: '#{db.dbUrl}'
               DATABASE_PORT: '#{db.dbPort}'
               DATABASE_USERNAME: '#{db.dbUsername}'
               DATABASE_PASSWORD: '#{db.dbPassword}'
