@@ -14,7 +14,7 @@ revolte:
           name: web_service
           entryPoint: index.js
           properties:
-            health: /healt
+            health: /health
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -63,7 +63,7 @@ revolte:
           name: web_service
           entryPoint: index.js
           properties:
-            health: /healt
+            health: /health
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -112,7 +112,7 @@ revolte:
           name: web_service
           entryPoint: index.js
           properties:
-            health: /healt
+            health: /health
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -156,7 +156,7 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: revolte-may-20
+            bucketName: bucket
             versioningStatus: enabled
             public: false
         rid_4:
