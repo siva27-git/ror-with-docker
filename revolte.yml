@@ -156,7 +156,7 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: bucket
+            bucketName: buck-p
             versioningStatus: enabled
             public: false
         rid_4:
