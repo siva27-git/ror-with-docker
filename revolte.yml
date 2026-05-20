@@ -2,9 +2,6 @@ revolte:
   version: '1.0'
   project: May-19
   appName: ror-with-docker
-  workflow:
-    developerWorkflow:
-      enabled: true
   env:
     staging:
       branch: staging
@@ -174,7 +171,7 @@ revolte:
           name: web_service
           entryPoint: index.js
           properties:
-            health: /healt
+            health: /health
             port: 8080
             loadBalancerMode: dedicated
             variables:
