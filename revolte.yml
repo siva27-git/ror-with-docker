@@ -2,6 +2,13 @@ revolte:
   version: '1.0'
   project: May-19
   appName: ror-with-docker
+  config:
+    codeReview:
+      summarize: true
+      suggestFixes: true
+      commentStyle: Verbose
+    testSuite:
+      command: bundle install && bundle exec rails test
   workflow:
     developerWorkflow:
       enabled: true
@@ -12,29 +19,44 @@ revolte:
         rid_1:
           type: WEB_SERVICE
           name: web_service
-          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
           properties:
             health: /health
             port: 8080
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
-              AWS_REGION: '#{storage_bucket_service.region}'
-              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
-              AWS_BUCKET_NAME: ror-test-s
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
+              REGION: '#{storage_bucket_service.region}'
+              CACHE_HOST: '#{cache.cacheHost}'
+              CACHE_PORT: '#{cache.cachePort}'
+              CACHE_PASSWORD: '#{cache.cachePassword}'
           specifications:
             cpu: 2
             memory: 1
             storage: 30
+        rid_2:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
         rid_3:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: ror-test-s
+            bucketName: break-2
             versioningStatus: enabled
             public: false
-        rid_2:
+        rid_4:
           type: CACHE
           name: cache
           specifications:
@@ -46,17 +68,21 @@ revolte:
         rid_1:
           type: WEB_SERVICE
           name: web_service
-          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
           properties:
             health: /health
             port: 8080
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
-              AWS_REGION: '#{storage_bucket_service.region}'
-              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
-              AWS_BUCKET_NAME: ror-test-d
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
+              REGION: '#{storage_bucket_service.region}'
               CACHE_HOST: '#{cache.cacheHost}'
               CACHE_PORT: '#{cache.cachePort}'
               CACHE_PASSWORD: '#{cache.cachePassword}'
@@ -64,14 +90,22 @@ revolte:
             cpu: 2
             memory: 1
             storage: 30
+        rid_2:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
         rid_3:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: ror-test-d
+            bucketName: break-6
             versioningStatus: enabled
             public: false
-        rid_2:
+        rid_4:
           type: CACHE
           name: cache
           specifications:
@@ -82,18 +116,26 @@ revolte:
       services:
         rid_1:
           type: WEB_SERVICE
-          name: web_service
-          entryPoint: bundle exec rails server -b 0.0.0.0 -p 8080
+          name: may_service
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
           properties:
             health: /health
             port: 8080
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
-              AWS_REGION: '#{storage_bucket_service.region}'
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
               AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
-              AWS_BUCKET_NAME: ror-test-p
+              AWS_SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
+              AWS_REGION: '#{storage_bucket_service.region}'
+              CACHE_HOST: '#{cache.cacheHost}'
+              CACHE_PORT: '#{cache.cachePort}'
+              CACHE_PASSWORD: '#{cache.cachePassword}'
+              AWS_BUCKET_NAME: may-20-break
           specifications:
             cpu: 2
             memory: 1
@@ -110,16 +152,24 @@ revolte:
               behavior:
                 scaleDown:
                   stabilizationWindow: 300
+        rid_2:
+          type: DATABASE
+          name: may_data_base
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
         rid_3:
           type: STORAGE_BUCKET
-          name: storage_bucket_service
+          name: may_storage_bucket
           configurations:
-            bucketName: ror-test-p
+            bucketName: may-20-break
             versioningStatus: enabled
             public: false
-        rid_2:
+        rid_4:
           type: CACHE
-          name: cache
+          name: may_cache
           specifications:
             cpu: 2
             memory: 0.5
@@ -129,29 +179,44 @@ revolte:
         rid_1:
           type: WEB_SERVICE
           name: web_service
-          entryPoint: index.js
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
           properties:
             health: /health
             port: 8080
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
-              AWS_REGION: '#{storage_bucket_service.region}'
-              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
-              AWS_BUCKET_NAME: ror-test
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
+              REGION: '#{storage_bucket_service.region}'
+              CACHE_HOST: '#{cache.cacheHost}'
+              CACHE_PORT: '#{cache.cachePort}'
+              CACHE_PASSWORD: '#{cache.cachePassword}'
           specifications:
             cpu: 2
             memory: 1
             storage: 30
+        rid_2:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
         rid_3:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: ror-test
+            bucketName: break-4
             versioningStatus: enabled
             public: false
-        rid_2:
+        rid_4:
           type: CACHE
           name: cache
           specifications:
