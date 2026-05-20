@@ -122,12 +122,13 @@ revolte:
               DATABASE_USERNAME: '#{db.dbUsername}'
               DATABASE_PASSWORD: '#{db.dbPassword}'
               DATABASE_NAME: '#{db.dbName}'
-              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
-              REGION: '#{storage_bucket_service.region}'
+              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
+              AWS_REGION: '#{storage_bucket_service.region}'
               CACHE_HOST: '#{cache.cacheHost}'
               CACHE_PORT: '#{cache.cachePort}'
               CACHE_PASSWORD: '#{cache.cachePassword}'
+              AWS_BUCKET_NAME: revolte-may-20-1
           specifications:
             cpu: 2
             memory: 1
@@ -156,7 +157,7 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: buck-p
+            bucketName: revolte-may-20-1
             versioningStatus: enabled
             public: false
         rid_4:
