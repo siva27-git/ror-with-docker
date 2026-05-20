@@ -1,0 +1,214 @@
+revolte:
+  version: '1.0'
+  project: May-19
+  appName: ror-with-docker
+  env:
+    staging:
+      branch: staging
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
+          properties:
+            health: /health
+            port: 8080
+            loadBalancerMode: dedicated
+            variables:
+              BASE_URL: /api/v1
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
+              REGION: '#{storage_bucket_service.region}'
+              CACHE_HOST: '#{cache.cacheHost}'
+              CACHE_PORT: '#{cache.cachePort}'
+              CACHE_PASSWORD: '#{cache.cachePassword}'
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+        rid_2:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: break-2
+            versioningStatus: enabled
+            public: false
+        rid_4:
+          type: CACHE
+          name: cache
+          specifications:
+            cpu: 2
+            memory: 0.5
+    qa:
+      branch: develop
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
+          properties:
+            health: /health
+            port: 8080
+            loadBalancerMode: dedicated
+            variables:
+              BASE_URL: /api/v1
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
+              REGION: '#{storage_bucket_service.region}'
+              CACHE_HOST: '#{cache.cacheHost}'
+              CACHE_PORT: '#{cache.cachePort}'
+              CACHE_PASSWORD: '#{cache.cachePassword}'
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+        rid_2:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: break-6
+            versioningStatus: enabled
+            public: false
+        rid_4:
+          type: CACHE
+          name: cache
+          specifications:
+            cpu: 2
+            memory: 0.5
+    production:
+      branch: main
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: may_service
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
+          properties:
+            health: /health
+            port: 8080
+            loadBalancerMode: dedicated
+            variables:
+              BASE_URL: /api/v1
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              AWS_SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
+              AWS_REGION: '#{storage_bucket_service.region}'
+              CACHE_HOST: '#{cache.cacheHost}'
+              CACHE_PORT: '#{cache.cachePort}'
+              CACHE_PASSWORD: '#{cache.cachePassword}'
+              AWS_BUCKET_NAME: may-20-break
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            autoScaling:
+              replica:
+                min: 1
+                max: 1
+              utilization:
+                cpu:
+                  target: 70
+                memory:
+                  target: 70
+              behavior:
+                scaleDown:
+                  stabilizationWindow: 300
+        rid_2:
+          type: DATABASE
+          name: may_data_base
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
+        rid_3:
+          type: STORAGE_BUCKET
+          name: may_storage_bucket
+          configurations:
+            bucketName: may-20-break
+            versioningStatus: enabled
+            public: false
+        rid_4:
+          type: CACHE
+          name: may_cache
+          specifications:
+            cpu: 2
+            memory: 0.5
+            replica: 1
+    preview:
+      services:
+        rid_1:
+          type: WEB_SERVICE
+          name: web_service
+          entryPoint: bin/docker-entrypoint bundle exec rails server -b 0.0.0.0 -p 8080
+          properties:
+            health: /health
+            port: 8080
+            loadBalancerMode: dedicated
+            variables:
+              BASE_URL: /api/v1
+              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_PORT: '#{db.dbPort}'
+              DATABASE_USERNAME: '#{db.dbUsername}'
+              DATABASE_PASSWORD: '#{db.dbPassword}'
+              DATABASE_NAME: '#{db.dbName}'
+              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
+              REGION: '#{storage_bucket_service.region}'
+              CACHE_HOST: '#{cache.cacheHost}'
+              CACHE_PORT: '#{cache.cachePort}'
+              CACHE_PASSWORD: '#{cache.cachePassword}'
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+        rid_2:
+          type: DATABASE
+          name: db
+          specifications:
+            cpu: 2
+            memory: 1
+            storage: 30
+            engine: postgres
+        rid_3:
+          type: STORAGE_BUCKET
+          name: storage_bucket_service
+          configurations:
+            bucketName: break-4
+            versioningStatus: enabled
+            public: false
+        rid_4:
+          type: CACHE
+          name: cache
+          specifications:
+            cpu: 2
+            memory: 0.5
