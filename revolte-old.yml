@@ -24,9 +24,10 @@ revolte:
               DATABASE_USERNAME: '#{db.dbUsername}'
               DATABASE_PASSWORD: '#{db.dbPassword}'
               DATABASE_NAME: '#{db.dbName}'
-              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
-              REGION: '#{storage_bucket_service.region}'
+              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
+              AWS_REGION: '#{storage_bucket_service.region}'
+              AWS_BUCKET_NAME: break-2
               CACHE_HOST: '#{cache.cacheHost}'
               CACHE_PORT: '#{cache.cachePort}'
               CACHE_PASSWORD: '#{cache.cachePassword}'
@@ -68,14 +69,15 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
-              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_HOST: '#{db.dbUrl}'
               DATABASE_PORT: '#{db.dbPort}'
               DATABASE_USERNAME: '#{db.dbUsername}'
               DATABASE_PASSWORD: '#{db.dbPassword}'
               DATABASE_NAME: '#{db.dbName}'
-              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
-              REGION: '#{storage_bucket_service.region}'
+              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
+              AWS_REGION: '#{storage_bucket_service.region}'
+              AWS_BUCKET_NAME: break-6
               CACHE_HOST: '#{cache.cacheHost}'
               CACHE_PORT: '#{cache.cachePort}'
               CACHE_PASSWORD: '#{cache.cachePassword}'
@@ -117,17 +119,17 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
-              DATABASE_HOST: '#{db.dbUrl}'
-              DATABASE_PORT: '#{db.dbPort}'
-              DATABASE_USERNAME: '#{db.dbUsername}'
-              DATABASE_PASSWORD: '#{db.dbPassword}'
-              DATABASE_NAME: '#{db.dbName}'
-              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              AWS_SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
-              AWS_REGION: '#{storage_bucket_service.region}'
-              CACHE_HOST: '#{cache.cacheHost}'
-              CACHE_PORT: '#{cache.cachePort}'
-              CACHE_PASSWORD: '#{cache.cachePassword}'
+              DATABASE_HOST: '#{may_data_base.dbUrl}'
+              DATABASE_PORT: '#{may_data_base.dbPort}'
+              DATABASE_USERNAME: '#{may_data_base.dbUsername}'
+              DATABASE_PASSWORD: '#{may_data_base.dbPassword}'
+              DATABASE_NAME: '#{may_data_base.dbName}'
+              AWS_ACCESS_KEY_ID: '#{may_storage_bucket.accessKeyId}'
+              AWS_SECRET_ACCESS_KEY: '#{may_storage_bucket.secretAccessKeyId}'
+              AWS_REGION: '#{may_storage_bucket.region}'
+              CACHE_HOST: '#{may_cache.cacheHost}'
+              CACHE_PORT: '#{may_cache.cachePort}'
+              CACHE_PASSWORD: '#{may_cache.cachePassword}'
               AWS_BUCKET_NAME: may-20-break
           specifications:
             cpu: 2
@@ -179,14 +181,15 @@ revolte:
             loadBalancerMode: dedicated
             variables:
               BASE_URL: /api/v1
-              DATABASE_URL: '#{db.dbUrl}'
+              DATABASE_HOST: '#{db.dbUrl}'
               DATABASE_PORT: '#{db.dbPort}'
               DATABASE_USERNAME: '#{db.dbUsername}'
               DATABASE_PASSWORD: '#{db.dbPassword}'
               DATABASE_NAME: '#{db.dbName}'
-              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
-              REGION: '#{storage_bucket_service.region}'
+              AWS_ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
+              AWS_SECRET_ACCESS_KEY: '#{storage_bucket_service.secretAccessKeyId}'
+              AWS_REGION: '#{storage_bucket_service.region}'
+              AWS_BUCKET_NAME: break-4
               CACHE_HOST: '#{cache.cacheHost}'
               CACHE_PORT: '#{cache.cachePort}'
               CACHE_PASSWORD: '#{cache.cachePassword}'
