@@ -15,6 +15,8 @@ revolte:
   env:
     staging:
       branch: staging
+      codeReview: false
+      testSuite: false
       services:
         rid_1:
           type: WEB_SERVICE
@@ -64,6 +66,8 @@ revolte:
             memory: 0.5
     qa:
       branch: develop
+      codeReview: false
+      testSuite: false
       services:
         rid_1:
           type: WEB_SERVICE
@@ -113,6 +117,8 @@ revolte:
             memory: 0.5
     production:
       branch: main
+      codeReview: false
+      testSuite: false
       services:
         rid_1:
           type: WEB_SERVICE
@@ -175,6 +181,8 @@ revolte:
             memory: 0.5
             replica: 1
     preview:
+      codeReview: false
+      testSuite: false
       services:
         rid_1:
           type: WEB_SERVICE
