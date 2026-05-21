@@ -1,5 +1,10 @@
 class HealthController < ApplicationController
   def show
-    render json: { status: "ok", service: "ror-with-docker" }, status: :ok
+    Rails.logger.info "[HealthCheck] Request received from #{request.remote_ip} (#{request.user_agent})"
+
+    response_body = { status: "ok", service: "ror-with-docker" }
+    Rails.logger.info "[HealthCheck] Responding with status=ok"
+
+    render json: response_body, status: :ok
   end
 end
