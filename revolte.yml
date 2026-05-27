@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
-  project: May-19
-  appName: ror-with-docker
+  project: may-27
+  appName: ROR Testing
   config:
     codeReview:
       summarize: true
